@@ -19,31 +19,6 @@
     }
 }
 
-.footerBar {
-    z-index: 9;
-    background: white;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-}
-
-.footerBar img {
-    display: block;
-    margin: 3px auto;
-}
-
-.footerBar ul {
-    padding: 0;
-    margin: 10px auto;
-}
-
-.footerBar li {
-    list-style-type: none;
-    display: inline-block;
-    padding: 10px 8px 0px 10px;
-    font-size: 14px;
-}
-
 .floatingIcons {
     position: fixed;
     text-align: center;

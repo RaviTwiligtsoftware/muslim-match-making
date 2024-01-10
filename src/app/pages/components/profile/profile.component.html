@@ -97,11 +97,17 @@
         </div>
 
     </div>
-    <div class="row footerBar">
-        <ul>
-            <li *ngFor="let menuItem of menuItems" [class.active]="menuItem.label === 'Matches'">
-                <img [src]="'assets/images/' + menuItem.icon" alt="{{ menuItem.label }}"> {{ menuItem.label }}
-            </li>
-        </ul>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center">
+                <ul class="list-inline d-flex justify-content-between">
+                    <li *ngFor="let menuItem of menuItems" [class.active]="menuItem.label === 'Matches'"
+                        class="list-inline-item">
+                        <img [src]="'assets/images/' + menuItem.icon" alt="{{ menuItem.label }}"><br>
+                        {{ menuItem.label }}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
