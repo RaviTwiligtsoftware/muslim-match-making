@@ -1,5 +1,5 @@
 export interface UserProfile {
-    profileData: [{
+    profileData: {
         id: string;
         name: string;
         age: string;
@@ -16,5 +16,5 @@ export interface UserProfile {
         consumeDrugs: string;
         about: string;
         imageUrl: string;
-    }]
+    }[]
 }

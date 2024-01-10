@@ -82,26 +82,14 @@
             </div>
         </div>
 
-
         <div class="religion-icons">
-            <p *ngIf="hasProfileProperty('religion')">
-                <img src="assets/images/temple.png" alt="">
-                {{profileData[currentIndex]?.religion}}
-            </p>
-            <p *ngIf="hasProfileProperty('willingToAbroad')">
-                <img src="assets/images/ring.png" alt="">
-                {{profileData[currentIndex]?.marriageDetails}}
-            </p>
-            <p *ngIf="hasProfileProperty('willingToAbroad')">
-                <img src="assets/images/flight.png" alt="">
-                {{profileData[currentIndex]?.willingToAbroad}}
-            </p>
-            <p *ngIf="hasProfileProperty('consumeDrugs')">
-                <img src="assets/images/glass.png" alt="">
-                {{profileData[currentIndex]?.consumeDrugs}}
-            </p>
+            <ng-container *ngFor="let propertyInfo of profileProperties">
+                <p *ngIf="hasProfileProperty(propertyInfo.key)">
+                    <img [src]="getIconForProperty(propertyInfo.key)" alt="">
+                    {{ profileData[currentIndex]?.[propertyInfo.key] }}
+                </p>
+            </ng-container>
         </div>
-
 
         <div class="myself">
             <h3>About me</h3>

@@ -20,11 +20,17 @@ export class ProfileComponent {
     { label: 'Mutual', icon: 'mutual.png' },
     { label: 'menu', icon: 'menu.png' }
   ];
+  public profileProperties = [
+    { key: 'religion', icon: 'temple.png' },
+    { key: 'marriageDetails', icon: 'ring.png' },
+    { key: 'willingToAbroad', icon: 'flight.png' },
+    { key: 'consumeDrugs', icon: 'glass.png' }
+  ];
 
   constructor(
     private service: ProfileService,
     public toastr: ToastrService
-    ) { }
+  ) { }
 
 
 
@@ -58,5 +64,9 @@ export class ProfileComponent {
     return this.profileData && this.profileData[this.currentIndex]?.[property] !== undefined;
   }
 
+  public getIconForProperty(property: string): string {
+    const propertyInfo = this.profileProperties.find(prop => prop.key === property);
+    return propertyInfo ? `assets/images/${propertyInfo.icon}` : '';
+  }
 }
 
