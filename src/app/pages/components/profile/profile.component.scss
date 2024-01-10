@@ -52,6 +52,20 @@
     margin-right: 15px;
 }
 
+.religion-icons .icon-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon-image {
+    margin-right: 8px;
+}
+
+.icon-text {
+    flex-grow: 1;
+}
+
 .profileName {
     font-size: 24px;
     margin-top: 50px;

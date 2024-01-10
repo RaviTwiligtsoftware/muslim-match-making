@@ -19,7 +19,7 @@
                 <img [src]="profileData[currentIndex]?.imageUrl">
             </ng-container>
             <ng-template #noImages>
-                <img src="../../../../assets/images/default.jpeg" alt="Default Image">
+                <img src="../../../../assets/" alt="Default Image">
             </ng-template>
         </div>
 
@@ -84,13 +84,12 @@
 
         <div class="religion-icons">
             <ng-container *ngFor="let propertyInfo of profileProperties">
-                <p *ngIf="hasProfileProperty(propertyInfo.key)">
-                    <img [src]="getIconForProperty(propertyInfo.key)" alt="">
-                    {{ profileData[currentIndex]?.[propertyInfo.key] }}
-                </p>
+                <div *ngIf="hasProfileProperty(propertyInfo.key)" class="icon-container">
+                    <img [src]="getIconForProperty(propertyInfo.key)" alt="" class="icon-image">
+                    <span class="icon-text">{{ profileData[currentIndex]?.[propertyInfo.key] }}</span>
+                </div>
             </ng-container>
         </div>
-
         <div class="myself">
             <h3>About me</h3>
             <p *ngIf="hasProfileProperty('about')">{{profileData[currentIndex]?.about}}</p>
