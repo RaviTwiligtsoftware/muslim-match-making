@@ -89,6 +89,18 @@ span.text-align {
     top: -5px;
 }
 
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 @media screen and (min-width: 1024px) {
     .profile-banner img {
         width: 20%
