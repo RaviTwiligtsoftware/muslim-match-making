@@ -1,0 +1,119 @@
+<div class="container-fluid body">
+    <div class="row main-header shadow-sm pt-4 bg-white">
+        <div class="col-2">
+            <img src="assets/images/filter.png" alt="">
+        </div>
+        <div class="col-8 text-center">
+            <h3 class="header-font-color"> <img src="assets/images/heart.png" alt="">
+                Muslim Match
+            </h3>
+        </div>
+        <div class="col-2 text-end header-font-color">
+            <mat-icon>more_vert</mat-icon>
+        </div>
+    </div>
+
+    <div class="profieImgage">
+        <div class="profile-banner">
+            <ng-container *ngIf="profileData?.length > 0; else noImages">
+                <img [src]="profileData[currentIndex]?.imageUrl">
+            </ng-container>
+            <ng-template #noImages>
+                <img src="default-image-url" alt="Default Image">
+            </ng-template>
+        </div>
+
+
+        <div class="floatingIcons">
+            <button mat-fab class="closeBg" (click)="profileRejected()">
+                <mat-icon>close</mat-icon>
+            </button>
+            <button mat-fab class="ChatBgcolor" matBadge="1" matBadgePosition="below">
+                <mat-icon>chat</mat-icon>
+            </button>
+            <button mat-fab color="accent" (click)="profileIntrested()">
+                <mat-icon>favorite</mat-icon>
+            </button>
+        </div>
+
+        <div class="mt-4 pb-2">
+            <div class="fs-4 profileName">
+                <ng-container *ngIf="hasProfileProperty('name')">
+                    <span>{{ profileData[currentIndex]?.name + ',' }}</span>
+                </ng-container>
+
+                <ng-container *ngIf="hasProfileProperty('age')">
+                    <span class="text-align">{{ profileData[currentIndex]?.age }}</span>
+                </ng-container>
+
+                <span class="greencircle"></span>
+            </div>
+
+            <div class="fs-5 fw-light mt-3">
+                <ng-container *ngIf="hasProfileProperty('community')">
+                    <span>{{profileData[currentIndex]?.community + ','}}</span>
+                </ng-container>
+
+                <ng-container *ngIf="hasProfileProperty('height')">
+                    <span class="text-align">{{profileData[currentIndex]?.height + ','}}</span>
+                </ng-container>
+
+                <ng-container *ngIf="hasProfileProperty('address')">
+                    <span class="text-align">{{profileData[currentIndex]?.address}}</span>
+                </ng-container>
+            </div>
+
+            <div class="fs-5 fw-light mt-3">
+                <ng-container *ngIf="hasProfileProperty('work')">
+                    <span>{{profileData[currentIndex]?.work + ','}}</span>
+                </ng-container>
+
+                <ng-container *ngIf="hasProfileProperty('degree')">
+                    <span class="text-align">{{profileData[currentIndex]?.degree + ','}}</span>
+                </ng-container>
+
+                <ng-container *ngIf="hasProfileProperty('country')">
+                    <span class="text-align">{{profileData[currentIndex]?.country + ','}}</span>
+                </ng-container>
+
+                <ng-container *ngIf="hasProfileProperty('continent')">
+                    <span class="text-align">{{profileData[currentIndex]?.continent}}</span>
+                </ng-container>
+            </div>
+        </div>
+
+
+        <div class="religion-icons">
+            <p *ngIf="hasProfileProperty('religion')">
+                <img src="assets/images/temple.png" alt="">
+                {{profileData[currentIndex]?.religion}}
+            </p>
+            <p *ngIf="hasProfileProperty('willingToAbroad')">
+                <img src="assets/images/ring.png" alt="">
+                {{profileData[currentIndex]?.marriageDetails}}
+            </p>
+            <p *ngIf="hasProfileProperty('willingToAbroad')">
+                <img src="assets/images/flight.png" alt="">
+                {{profileData[currentIndex]?.willingToAbroad}}
+            </p>
+            <p *ngIf="hasProfileProperty('consumeDrugs')">
+                <img src="assets/images/glass.png" alt="">
+                {{profileData[currentIndex]?.consumeDrugs}}
+            </p>
+        </div>
+
+
+        <div class="myself">
+            <h3>About me</h3>
+            <p *ngIf="hasProfileProperty('about')">{{profileData[currentIndex]?.about}}</p>
+        </div>
+
+    </div>
+    <div class="row footerBar">
+        <ul>
+            <li *ngFor="let menuItem of menuItems" [class.active]="menuItem.label === 'Matches'">
+                <img [src]="'assets/images/' + menuItem.icon" alt="{{ menuItem.label }}"> {{ menuItem.label }}
+            </li>
+        </ul>
+    </div>
+</div>
